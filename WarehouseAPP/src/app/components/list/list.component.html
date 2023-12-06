@@ -1,0 +1,40 @@
+<ul class="flex flex-col gap-6 md:gap-9">
+  <li
+    *ngFor="let product of service.list"
+    class="flex cursor-pointer flex-col items-start rounded-xl bg-zinc-700 p-3 md:p-6"
+  >
+    <div class="mb-3 flex w-full items-center justify-between md:mb-6">
+      <h1 class="max-w-[6rem] text-xl font-bold md:max-w-[12rem]">
+        {{ product.name }}
+      </h1>
+
+      <div class="flex items-center gap-1">
+        <button
+          (click)="fillForm(product)"
+          class="block h-7 w-7 rounded bg-gradient-to-r from-lime-500 to-green-700 text-center leading-none text-zinc-100 duration-150 hover:bg-gradient-to-l active:scale-90"
+        >
+          e
+        </button>
+
+        <button
+          (click)="onDelete(product.id)"
+          class="block h-7 w-7 rounded bg-gradient-to-r from-rose-500 to-red-700 text-center leading-none text-zinc-100 duration-150 hover:bg-gradient-to-l active:scale-90"
+        >
+          x
+        </button>
+      </div>
+    </div>
+    <span class="block h-1 w-full rounded bg-zinc-900"></span>
+    <p class="my-3 font-medium text-zinc-300 md:my-6">
+      {{ product.description }}
+    </p>
+    <span class="block h-1 w-full rounded bg-zinc-900"></span>
+    <div class="my-3 flex w-full items-center justify-between md:my-6">
+      <h1 class="text-xl font-bold">{{ product.price }}$</h1>
+      <div class="flex max-w-[6rem] flex-col items-start md:max-w-[12rem]">
+        <span class="text-sm text-zinc-500">{{ product.quantity }}</span>
+        <span class="text-sm text-zinc-500">{{ product.createAt }}</span>
+      </div>
+    </div>
+  </li>
+</ul>

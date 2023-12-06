@@ -1,0 +1,71 @@
+<form
+  #form="ngForm"
+  (submit)="onSubmit(form)"
+  autocomplete="off"
+  class="flex flex-col items-center gap-6 md:gap-9"
+>
+  <input type="hidden" name="id" [value]="service.formData.id" />
+
+  <label for="name" class="flex w-full flex-col gap-1">
+    <h3 class="text-xl font-medium">Name</h3>
+    <input
+      name="name"
+      type="text"
+      #name="ngModel"
+      [(ngModel)]="service.formData.name"
+      required
+      minlength="1"
+      maxlength="100"
+      class="appearance-none rounded-xl bg-zinc-100 p-3 text-zinc-900 outline-none ring-1 invalid:ring-rose-600"
+    />
+  </label>
+
+  <label for="description" class="flex w-full flex-col gap-1">
+    <h3 class="text-xl font-medium">Description</h3>
+    <input
+      name="description"
+      type="text"
+      #description="ngModel"
+      [(ngModel)]="service.formData.description"
+      required
+      minlength="1"
+      maxlength="1000"
+      class="appearance-none rounded-xl bg-zinc-100 p-3 text-zinc-900 outline-none ring-1 invalid:ring-rose-600"
+    />
+  </label>
+
+  <label for="price" class="flex w-full flex-col gap-1">
+    <h3 class="text-xl font-medium">Price</h3>
+    <input
+      name="price"
+      type="number"
+      #price="ngModel"
+      [(ngModel)]="service.formData.price"
+      required
+      min="1"
+      max="10000"
+      class="appearance-none rounded-xl bg-zinc-100 p-3 text-zinc-900 outline-none ring-1 invalid:ring-rose-600"
+    />
+  </label>
+
+  <label for="quantity" class="flex w-full flex-col gap-1">
+    <h3 class="text-xl font-medium">Quantity</h3>
+    <input
+      name="quantity"
+      type="number"
+      #quantity="ngModel"
+      [(ngModel)]="service.formData.quantity"
+      required
+      min="1"
+      max="10000"
+      class="appearance-none rounded-xl bg-zinc-100 p-3 text-zinc-900 outline-none ring-1 invalid:ring-rose-600"
+    />
+  </label>
+
+  <button
+    type="submit"
+    class="w-full rounded-xl bg-gradient-to-r from-rose-500 to-red-700 px-9 py-3 text-xl font-medium"
+  >
+    Submit
+  </button>
+</form>
